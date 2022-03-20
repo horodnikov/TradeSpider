@@ -2,17 +2,15 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
-
 import scrapy
 from scrapy.loader.processors import MapCompose, TakeFirst
 
 
-def get_big_img_url(url: str):
+def get_big_img_url(url):
     return url.replace("/m/", "/b/").replace("/s/", "/b/")
 
 
 class TradeparserItem(scrapy.Item):
-    id = scrapy.Field()
     title = scrapy.Field(output_processor=TakeFirst())
     photos = scrapy.Field(input_processor=MapCompose(get_big_img_url))
-    pass
+    _id = scrapy.Field()

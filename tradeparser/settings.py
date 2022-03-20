@@ -14,8 +14,9 @@ NEWSPIDER_MODULE = 'tradeparser.spiders'
 
 IMAGES_STORE = "images"
 IMAGES_THUMBS = {
-   "small": {50, 50},
-   "medium": {100, 100}
+    "small": (50, 50),
+    "medium": (100, 100),
+    "random": (42, 42)
 }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -69,7 +70,7 @@ COOKIES_ENABLED = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'tradeparser.pipelines.TradeparserPipeline': 300,
-   'tradeparser.pipelines.OTradeparserPipeline': 299,
+   'tradeparser.pipelines.TradeparserImagesPipeline': 299,
 }
 
 

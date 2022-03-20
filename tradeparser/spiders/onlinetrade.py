@@ -31,8 +31,6 @@ class OnlinetradeSpider(scrapy.Spider):
         loader.add_xpath("title", "//h1[contains(@itemprop, 'name')]/text()")
         print()
         yield loader.load_item()
-
-        pass
         # item = TradeparserItem()
         # item["title"] = response.xpath(
         #     "//h1[contains(@itemprop, 'name')]/text()").get()
@@ -40,4 +38,3 @@ class OnlinetradeSpider(scrapy.Spider):
         #     "//img[contains(@class, 'Image')]/@src "
         #     "| //img[contains(@id, 'bigImage')]/@src").getall()
         # yield item
-        pass

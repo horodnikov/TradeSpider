@@ -10,10 +10,10 @@ from itemadapter import ItemAdapter
 from scrapy.pipelines.images import ImagesPipeline
 
 
-class OTradeparserPipeline(ImagesPipeline):
+class TradeparserImagesPipeline(ImagesPipeline):
     def get_media_requests(self, item, info):
         if item["photos"]:
-            for photo_url in item["photos"]:
+            for photo_url in item['photos']:
                 try:
                     yield scrapy.Request(photo_url)
                 except Exception as exception:
